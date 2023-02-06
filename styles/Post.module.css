@@ -1,0 +1,47 @@
+div.post {
+  display: grid;
+
+  grid-template-areas:
+  "pageContent pageInfo" 
+  "pageContent ."
+  "pageContent .";
+
+  grid-template-columns: 1fr 15rem;
+  grid-template-rows: 20rem 1fr 1fr;
+
+  gap: 4rem;
+}
+
+div.content {
+  grid-area: pageContent;
+
+  padding-right: 1rem;
+
+  border-right: 1px solid var(--light);
+}
+
+div.info {
+  grid-area: pageInfo;
+
+  padding: 1rem;
+
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+  div.post {
+    grid-template-areas:
+    "pageInfo"
+    "pageContent";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+
+    gap: 1rem;
+  }
+
+  div.content {
+    border-right: transparent;
+    padding-right: 0px;
+  }
+}

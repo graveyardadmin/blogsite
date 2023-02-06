@@ -1,0 +1,182 @@
+div.layout {
+  display: grid;
+
+  grid-template-areas: 
+  "header header"
+  ". main"
+  "footer footer";
+
+  grid-template-rows: 2rem 1fr 5rem;
+  grid-template-columns: 16rem 1fr;
+
+  min-height: 100vh;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+div.layout header {
+  grid-area: header;
+}
+
+div.layout main {
+  grid-area: main;
+}
+
+main div.content {
+  grid-area: content;
+}
+
+div.layout footer {
+  grid-area: footer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* navigation */
+div.layout nav {
+  --width: 360px;
+
+  position: fixed;
+
+  z-index: 1000;
+
+  top: 0;
+  left: calc((var(--width) - 40px) * -1);
+
+  background-color: var(--dark);
+
+  height: 100%;
+
+  width: var(--width);
+
+  animation: none;
+
+  display: grid;
+
+  grid-template-areas: 
+  "header button"
+  "content sidebar";
+
+  grid-template-columns: calc(100% - 40px) 40px;
+  grid-template-rows: 40px 100%;
+}
+
+nav div#navHeader {
+  grid-area: header;
+
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  border-bottom: 1px solid var(--light);
+}
+
+nav div#navHeader h2 {
+  margin: 0px;
+}
+
+nav button#navToggle {
+  grid-area: button;
+}
+
+nav div#navContent {
+  grid-area: content;
+}
+
+nav div#navSidebar {
+  grid-area: sidebar;
+}
+
+button#navToggle {
+  height: 40px;
+  
+  border: none;
+
+  background-color: var(--blue);
+
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* dim the content when the nav menu is opened */
+div#wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.616);
+
+  opacity: 0%;
+
+  display: none;
+}
+
+/* animation for nav */
+@keyframes slide {
+  0% { left: calc((var(--width) - 40px) * -1); }
+  100% { left: 0%;  } 
+}
+
+@keyframes slideOut {
+  0% { left: 0%; }
+  100% { left: calc((var(--width) - 40px) * -1);  } 
+}
+
+
+/* animation for wrapper */
+@keyframes fadeIn {
+  0% { opacity: 0%; }
+  100% { opacity: 100%; } 
+}
+
+@keyframes fadeOut {
+  0% { opacity: 100%; }
+  100% { opacity: 0%; }
+}
+
+
+@media screen and (max-width: 1200px) {
+  div.layout {
+    display: grid;
+  
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+  
+    grid-template-rows: 2rem 1fr 5rem;
+    grid-template-columns: 1fr;
+
+    height: 100%;
+    width: 100%;
+  
+    padding-left: 40px;
+    padding-right: 40px;
+
+    box-sizing:border-box;
+
+    background-color: var(--dark);
+    color: var(--light);
+  }
+
+  div.layout main {
+    grid-area: main;
+  }
+}

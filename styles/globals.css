@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro&display=swap');
+
+:root {
+  --dark: #121517;
+  --light: #F1F2EE;
+  --blue: #00B8F5;
+}
+
+html,body {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+ol li::marker,ul li::marker {
+  color: var(--blue);
+}
+
+/*
+@media screen and (max-width: 900px) {
+  ol,ul {
+    padding-left: 1rem;
+  }
+}
+
+*/
+li a {
+  color: var(--light);
+  text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: var(--blue);
+}
+
+b {
+  color: var(--blue);
+}
+
+hr{
+  height: 1px;
+  background-color: var(--light);
+  border: none;
+}
